@@ -1,0 +1,738 @@
+Wei Lai0:07
+Uh.
+OK, OK.
+Can you hear me?
+CZ
+Chuanbo Zhang0:14
+Yes, I could hear you.
+WL
+Wei Lai0:15
+Uh, there something wrong with my mic microphone?
+CZ
+Chuanbo Zhang0:21
+Yes, we could hear you.
+Let me.
+And they also had twenty can also paste the doc, while like trying to solve the micro.
+TX
+Tony Xiong1:05
+Link.
+CZ
+Chuanbo Zhang1:06
+Yeah, yeah, the doc link.
+TX
+Tony Xiong4:26
+Well, then, maybe.
+Uh, let me share my desktop so and I can control the uh, the the screen sharing.
+So.
+CZ
+Chuanbo Zhang4:51
+Equity or sharing now?
+TX
+Tony Xiong4:51
+Umm.
+I see.
+OK, right.
+OK.
+Umm.
+
+Bharath Reddy Koduru joined the meeting
+TX
+Tony Xiong5:03
+So firstly, thank you everyone for your time to being here and this review meeting is for reviewing the consumer CPC user service design spec.
+Umm I and the consumer user service is supposed to be a new service which will be providing user related.
+Services and functionalities for the consumer cloud PC.
+Umm.
+And let's go to the overview.
+So it's just me.
+OK.
+So uh, just uh one more umm introduction here.
+So this is ADO scenario and this is A1 pager TM spec.
+However, these two PM specs are still under review and development, so it might be some changes in future, but for now I'll what we can do is here.
+So for any future changes we will catch up in this design spec.
+OK.
+So umm here is the overview.
+So basically user service will provide aggregation of user information about for internal services.
+We will integrate like multiple the query from multiple places like customers three and identity services etcetera.
+Umm so that.
+Goal is to host the master table of users in 4 Umm and we will provide user related API to other services and we will retrieve an aggregate user info on demand and then we'll get user UPN display name.
+
+Wei Lai left the meeting
+TX
+Tony Xiong7:21
+OK, this is for M2 right PM Discipline 8 and in future we're going to get more user information, profile properties in future in M2 plus milestones.
+OK, wait, wait.
+Don't wanna store a, uh, like a A a license ID relation?
+The license related stuff, so we don't store the user ID and license ID relationship here and when I'm going to store let me say user most of the MSA user properties.
+Instead, we'll do query every time.
+
+Wei Lai joined the meeting
+CZ
+Chuanbo Zhang8:05
+So Tony, regarding the go, I I think last time there's a discussing like with Jia and a few other folks, one of the agreement is the user service issue.
+TX
+Tony Xiong8:05
+OK. Yeah.
+CZ
+Chuanbo Zhang8:17
+Uh, like the consumer user service and the enterprise your service, the issue provide the shared interface like for the lower layer so that they could handle this in comment I think that should be a clerical out as part of the goal that your service for the for the downstream like enterprise logic or provision logic, they should see the the shared contact with enterprise.
+
+Lamar Damata joined the meeting
+
+Wei Lai left the meeting
+TX
+Tony Xiong8:48
+Right.
+We did have this this discussion, but we agreed that we should make the API unified for both enterprise and consumer.
+
+Wei Lai joined the meeting
+TX
+Tony Xiong9:04
+However, there are still some different scenario different requirements.
+CZ
+Chuanbo Zhang9:04
+Umm.
+TX
+Tony Xiong9:13
+In in consumer part so that we we cannot make them all united, but some of them you make them unified but some of them can can be unified but some of them cannot.
+So this is the I think a A both Java and me, their team and our team.
+
+Wei Lai left the meeting
+TX
+Tony Xiong9:38
+We agree that, but we will keep the well, make it unified as much as possible, but we will still leave some space.
+Uh, for each part to provide a unique API or either to me, yeah.
+CZ
+Chuanbo Zhang9:56
+Yeah.
+So.
+So I think for for that we should list that as a goal and the call out in the designed what the specific that's exception to that.
+TX
+Tony Xiong10:07
+All right.
+Yeah.
+Yeah.
+OK.
+You.
+You said it.
+Yeah, we will.
+We will.
+I'll make some.
+Yeah.
+We will add this up on later on.
+OK, let me just to note it.
+CZ
+Chuanbo Zhang10:23
+Lamar, you are saying something?
+LD
+Lamar Damata10:26
+No.
+CZ
+Chuanbo Zhang10:28
+OK, OK.
+TX
+Tony Xiong10:35
+Then.
+Hey.
+CZ
+Chuanbo Zhang10:39
+Yet at when you, I think for the time maybe you could ask like a layaway to help take notes.
+And this is also report date.
+So we maybe we want to move forward and take this idea later on, yeah.
+TX
+Tony Xiong10:51
+OK.
+OK.
+OK, your suggestion.
+So lay or wait, can you please could you please take notes for me?
+OK, I will move on.
+TX
+Tony Xiong16:52
+Thank you.
+Graph graph that I see your hands, Steve.
+As you on are you are asking OK and that's all. Borrow.
+GD
+Gaurav Dhawan17:00
+As still.
+Sorry, no.
+Report it out.
+Thank you.
+CZ
+Chuanbo Zhang17:03
+Yeah, and bars the bars has requested.
+TX
+Tony Xiong17:05
+Yeah please.
+BK
+Bharath Reddy Koduru17:06
+Yeah, good question.
+So as per this dependencies, once only when the Commerce sync service.
+Only commerce sync service has a permissions to create the user and user group.
+Is that the only entry point of creating users and user group?
+There is no other entry point of creation.
+TX
+Tony Xiong17:28
+Yes, per the current design.
+Uh, the the creation, the Creation API will only be used by the not not commerce but the the onboard service.
+BK
+Bharath Reddy Koduru17:43
+I'm good service.
+So I'm assuming that only when you receive the license, that's when you're creating the user and user group.
+TX
+Tony Xiong17:44
+Yeah.
+BK
+Bharath Reddy Koduru17:50
+So there is no concept like in enterprise world where the user user could be created before and the license assignment comes later.
+So that's not possible here, right?
+TX
+Tony Xiong17:59
+Right, right.
+Right.
+That's the design.
+Yeah, that's the.
+Uh, the design of the from the architecture part, so the the the scenarios like this, the user will only be created when he is assigned with.
+License.
+BK
+Bharath Reddy Koduru18:18
+OK, so I'm assuming you'll cover it in the bottom sections about when the user goes away and when the license goes away.
+Hey, I'll wait.
+TX
+Tony Xiong18:27
+Excuse me, could you repeat again?
+BK
+Bharath Reddy Koduru18:29
+Still removing the user scenario, I think you'll probably cover in the further details of this flow, right?
+TX
+Tony Xiong18:36
+Oh yeah.
+You mean the deletion part?
+BK
+Bharath Reddy Koduru18:39
+Yeah.
+TX
+Tony Xiong18:40
+Yes, yes.
+GD
+Gaurav Dhawan18:42
+And but at the fear interested in the onboarding from the sync service that got covered in the last two weeks before architecture meeting, they're onboarding commercing service and all that was done, which gives you the life cycle from the entitlement service.
+BK
+Bharath Reddy Koduru18:51
+I'll, I'll.
+OK, I'll take a look at it.
+GD
+Gaurav Dhawan18:59
+Yeah.
+BK
+Bharath Reddy Koduru19:00
+Yeah.
+GD
+Gaurav Dhawan19:00
+Thank you.
+BK
+Bharath Reddy Koduru19:00
+I just thinking that because in in the these are not decoupled here, right?
+So the uh, when I was looking at the dark, there was no events generated.
+So I was curious like how provisioning is kicked off if it should be kicked off immediately as part of the user creation itself right here.
+GD
+Gaurav Dhawan19:18
+That will be after the user group service, but yeah, it should be in this document.
+How we notify RMS to start proving correct?
+BK
+Bharath Reddy Koduru19:24
+Yeah.
+OK, I'll wait.
+Dad.
+TX
+Tony Xiong19:29
+OK, if there's no more question, I will move on.
+So this is the uh uh overall architecture overview.
+So let me there's only in.
+So basically the user service will receive the events sent from commerce and through the commerce thing on board and then the user service notifying this, uh, a license assigned to a user so that the user will be should be created or onboarded OK and at the end the user service will umm create a backward in the cosmos TB and do some query to get the user in four.
+I'm like the UPN display name.
+Umm, it could create from the Ms service or item service or in future, maybe substrate and then the umm other other services like RMS or the customer portal service can query the user infer.
+Where's the using the user?
+The APIs provide provided by user service.
+This is the overall.
+Design I could picture view of the service actually is quite simple.
+So any question here?
+No, I will skip down, yeah.
+CZ
+Chuanbo Zhang21:17
+So.
+So Tony, I I think this is the well it is like look simple, but you didn't really mark like the boundary like like onboarding service that's the original and the MSI that's external service, right?
+And so you you might want to merge those boundary and so it will be clear.
+
+BK
+Bharath Reddy Koduru26:12
+Right.
+So it it is some random guide that we generate correct?
+TX
+Tony Xiong26:16
+Yes.
+BK
+Bharath Reddy Koduru26:17
+OK, so if a user go ahead.
+GD
+Gaurav Dhawan26:19
+Alright, I think the idea, but the idea is that we want to keep the reference with MSA PUID to be referencing our ID so that we don't replicate poet everywhere in our back end services so that we can clean up food and keep the queue wait around in case we want to keep it in a in a kind of a a soft delete state or whatever we want to keep the data around.
+At least the UPI can be deleted about the user when the user is gone.
+That is the intent and the second part was that tomorrow UID could be related to Ms Provider.
+Tomorrow it could be related to the Facebook ID or any other social identity, so it will be one place where this reference will be from Kuwait to whatever is the actual ID PIDO 8 or Facebook ID or whatever else that's the intent.
+BK
+Bharath Reddy Koduru27:07
+That makes sense.
+So if a customer returns, do we?
+I mean, since it's a system generator, one right, we will most likely assign a different quid if if uh end user returns back.
+GD
+Gaurav Dhawan27:13
+Yep, yeah.
+If, but if we are cleaning up the whole data related to the Kuwait associated with the Kuwait, like all its CPC has gone after 30 days or whatever our retention period is, then yes, that same user when it comes in, it'll be a new coward.
+BK
+Bharath Reddy Koduru27:30
+OK.
+But during the 30 days period, we still use the same code.
+GD
+Gaurav Dhawan27:33
+Yeah.
+BK
+Bharath Reddy Koduru27:35
+If the user comes back.
+GD
+Gaurav Dhawan27:36
+Yeah.
+Then we can just do a an unsolved delete and all the other rest of the system can stay.
+BK
+Bharath Reddy Koduru27:43
+OK.
+Because, uh, the the only reason I was asking is like they forget to renew the license most stuff and they'll come back and say, hey, I don't want to lose all my data.
+GD
+Gaurav Dhawan27:49
+Yeah.
+Then we should keep.
+BK
+Bharath Reddy Koduru27:51
+Like can I get it back?
+Because that kind of sets.
+GD
+Gaurav Dhawan27:53
+Correct, correct.
+So we we can this, this is the master table.
+We can mark it as soft delete entry, persisting the Kuwait and the pooled around so that when the power comes back and the state is known to the user service then we can just revive that record without having to worry about all the rest of the tables that is referencing cooled.
+BK
+Bharath Reddy Koduru27:58
+Uh-huh.
+You upstream services like commerce Sync are aware of Kuwait at all.
+GD
+Gaurav Dhawan28:19
+No.
+BK
+Bharath Reddy Koduru28:21
+So technically, an MSA can come in with license one today into our system.
+Uh, and tomorrow they can come back like returning user come with a different license.
+So it doesn't matter to.
+GD
+Gaurav Dhawan28:32
+Yeah.
+The pooled will.
+Yeah, policy will be the same.
+The license only controls the size of your cloud PC, whether you are entitled or not entitled to the cloud PC, it is not about the user, right?
+BK
+Bharath Reddy Koduru28:43
+Right.
+GD
+Gaurav Dhawan28:44
+So as long as we had it Once Upon a time licensed, we have it run the record until the data retention period and during that data retention period, if something comes back for the same user, we can revive 1.
+BK
+Bharath Reddy Koduru28:57
+OK.
+Got it.
+Yeah, there was one statement on top of this picture that that was what I had a question about previously that you're not sending any events or notifications of this user creation.
+Tony, there was a statement on top of this picture.
+TX
+Tony Xiong29:15
+It current curly not.
+There's there's currently the snow, there will be no event on post it for the user creation.
+BK
+Bharath Reddy Koduru29:26
+Is.
+Isn't that like an important point?
+Because we are only creating user after the licenses assigned, so effectively it is a trigger for provisioning directly, right?
+Or is there the trigger comes from the group service?
+TX
+Tony Xiong29:41
+Yes, yes, this is current design.
+But in future, if there's a need, we can also post events for the.
+User changes like user creation status, change other stuff.
+Uh.
+Other other situations?
+BK
+Bharath Reddy Koduru30:00
+Right.
+So I think there was one scenario where apart from provisioning was Tony especially for like let's say some idle detection scenarios or intelligence pillars.
+Once we know that, hey, this is a user that is in our system, we may want to start collecting signals from outside systems or outside sources.
+
+
+Because the arms will subscribe to events sent from the group service and from there.
+Uh, the armies will get the CID of the user and then he will use the CID of the user to get user information.
+NY
+Nick Young36:51
+So I guess from those flows that makes sense.
+I was thinking more like a a device action from the end user and a client that would come in effectively just with The Who it is the only source of information. Great.
+TX
+Tony Xiong37:04
+Yeah, you missed from the portal.
+NY
+Nick Young37:06
+Yep.
+TX
+Tony Xiong37:06
+From the photo, yeah, I think from the photo is is similar to the onboard service, the the portal service will create the CID from the.
+MSA ID 1st and then.
+Query other stuff with the with the you ID.
+NY
+Nick Young37:25
+Got it.
+Thanks.
+And then my second question was I, I DSI, I've done on teams of used this in the past and there were throughput problems at that point in time.
+TX
+Tony Xiong37:26
+Yeah.
+NY
+Nick Young37:35
+Have you ensured that like ID S will handle the throughput for M2 and beyond, and because it it's labeled as sort of a critical dependency here?
+So what are your thoughts on that?
+TX
+Tony Xiong37:45
+Oh, oh, you mean this?
+OK.
+So you mean this A through problem performance issues for the ideas API.
+NY
+Nick Young37:53
+Yeah, but it at least there was in the past.
+Like this was probably 5-6 years ago.
+I don't know.
+TX
+Tony Xiong37:58
+Ohh yeah.
+NY
+Nick Young37:58
+Like to what degree has changed?
+TX
+Tony Xiong38:00
+Yeah, I think it's a great question.
+Yeah, I I didn't realize that performs the potential performance issue.
+We will do some investigating to figure out.
+Thanks for the comment.
+NY
+Nick Young38:15
+OK.
+Thank you.
+TX
+Tony Xiong38:16
+Yeah.
+Yeah, that's a great question, yeah.
+OK, next one, however, yeah.
+CZ
+Chuanbo Zhang38:22
+Still up at 21 more, one more comment here.
+GD
+Gaurav Dhawan38:23
+And and Nick is as everyone one cause one question before that Sean.
+But to Nick, Nick, do you have an alternate other than ISAPI from your experience that should have been used?
+CZ
+Chuanbo Zhang38:29
+Sure.
+GD
+Gaurav Dhawan38:33
+It's not ideas API.
+NY
+Nick Young38:35
+No, I don't.
+But I I would probably just use some like TTL cache in front of it as a partial degradation solution.
+GD
+Gaurav Dhawan38:44
+OK.
+Because we'll have to switch to substrate because then we will be getting information more than what we need for those kind of the secondary account holder users, uh.
+So we will switch to that new one, but that will take time.
+But during M2, I think we'll be using only ideas API, but good search.
+OK.
+Thank you.
+TX
+Tony Xiong39:06
+Thanks.
+Yeah.
+Thanks nick.
+By the way, just number for M2.
+I think the performance is not the top priority.
+So IM2, we, we we won't do a lot of things off of the performance optimization but.
+A in later phases, certainly we will do.
+Thank you very much for the comment.
+OK temple.
+CZ
+Chuanbo Zhang39:28
+So yeah, totally.
+So I as we mentioned like 2 things you you want to for the downstream, you want to unify with the enterprise consumer service, enterprise user service and also you want to in future has extension with other IDP provider.
+So ohh your plantar here.
+You should always use a combination of the CID plus IDP as a key to query learning.
+Just that you see your ID RSA in future you add.
+You need to refactor again to add the ITP planter.
+So ITP planter should always be combined with the UID as a key and for quality with the user service and when used with downstream.
+TX
+Tony Xiong40:14
+We see IDP, do you mean ID provider?
+
+TX
+Tony Xiong46:34
+OK, OK.
+Yeah, that's fine.
+So we will add more notes I.
+CZ
+Chuanbo Zhang46:37
+You and yeah.
+And so and then the user service listen to this delayed like all the dance things.
+TX
+Tony Xiong46:45
+Mm-hmm.
+CZ
+Chuanbo Zhang46:45
+Like, do they listen to the same event grid topic from group service?
+Or will user service has the other notification for their downstream to clean up the data related to this user?
+TX
+Tony Xiong47:01
+You mean is there any other service that will subscribe to the same event?
+CZ
+Chuanbo Zhang47:07
+Yeah.
+TX
+Tony Xiong47:08
+EI think so.
+Yeah, like the like the uh arms and must portal.
+They should subscribe to 7 two, I think.
+CZ
+Chuanbo Zhang47:26
+OK, then eight to call this out. Umm.
+BK
+Bharath Reddy Koduru47:26
+So that Sean will that would be dangerous, right?
+What if the?
+Because the point is until user service deletes it, we should not act upon this in other services, right?
+What if, if 1.1 in this picture fails?
+CZ
+Chuanbo Zhang47:41
+Umm.
+BK
+Bharath Reddy Koduru47:41
+Uh, so no other services.
+User service is the source of truth for all their internal services, right?
+CZ
+Chuanbo Zhang47:46
+Umm.
+Umm yeah, in that case it's the.
+BK
+Bharath Reddy Koduru47:49
+So isn't it better?
+CZ
+Chuanbo Zhang47:50
+Then the user service should have another notification, but here it doesn't indicate that.
+BK
+Bharath Reddy Koduru47:53
+Yes. Yep.
+TX
+Tony Xiong47:57
+Uh, sorry.
+Trample.
+Maybe I should say the group service will send the different events like the user event which is used to notify the user service and other events to notify the uh our mess and portal like that. Umm.
+CZ
+Chuanbo Zhang48:20
+No, I I think like a bars with the coupon, the user is the source tool when user is deleted, so that notification should be sent by users.
+But the here you this chart you didn't show any of that, so that should be considered.
+TX
+Tony Xiong48:37
+Well.
+Uh, because.
+
+Yabo Chen left the meeting
+CZ
+Chuanbo Zhang48:40
+Otherwise the you you get the often record for for the user.
+TX
+Tony Xiong48:45
+Uh, let me explain because in our architect design the user is always combined with always.
+Let's see.
+Attached with a license if it's in the license, there's no user, right?
+So if if the user can exist independent from the license and I agree the solution you propose at a proposed but in in our case because the user is always bound to license, so group service can do that and better we let the group service to do that.
+BK
+Bharath Reddy Koduru49:14
+Now.
+TX
+Tony Xiong49:28
+This is our point.
+This our design.
+BK
+Bharath Reddy Koduru49:32
+At Tony.
+But the the only point is I agree with that one, but effectively everyone else in the system are using the Kool Aid that uses service provided, right?
+So, similar to when you're getting new license, only one service onboard service is asking user service to create the user.
+TX
+Tony Xiong49:44
+Hmm.
+Umm.
+BK
+Bharath Reddy Koduru49:53
+After that is completed, user service can generate notifications to downstream services which they can use this similarly during removal.
+It's better that group service has sense a specific event to user service and only user service can look at that event once it deletes it, then the downstream services get.
+Otherwise, there is a possibility that we could be deleting or we could be doing some things in other services when user service itself has some deleted something on its own side.
+GD
+Gaurav Dhawan50:25
+So let let so but there is a use case where user can be active in the user service, but the user group service is center notification of doing a cleanup for a cloud PC of this user in Group one versus Group 2.
+BK
+Bharath Reddy Koduru50:40
+Umm.
+GD
+Gaurav Dhawan50:42
+So you because you could have multiple rows in the user group service for the same user.
+As I saw user or API user right?
+BK
+Bharath Reddy Koduru50:47
+Perfect.
+GD
+Gaurav Dhawan50:49
+So definitely user group service needs to broadcast to RMS to clean up let's say cloud PC or put it into hibernate mode or whatever, right?
+
+
+I'm sorry.
+The official review now it's offline, but we're going to set up a meeting if you need it.
+CZ
+Chuanbo Zhang53:33
+Umm.
+TX
+Tony Xiong53:36
+So we have two reviews, ones for the spec.
+Ohh this is arch review which is which is focusing on the Umm, new service right?
+Whether it should be greater or not, so I'm just want you to clarify.
+CZ
+Chuanbo Zhang53:52
+Yeah.
+So we're what at the time.
+So I think Alexie, you have a schedule, another meeting on Google, right?
+So if there's no much remaining, so maybe we could combine this to to the next week and quickly go through and the for the question about the the app review, I I think it's more on the high levels like some.
+TX
+Tony Xiong54:00
+Yeah.
+CZ
+Chuanbo Zhang54:15
+Smith, we details then this we could review, but that's the less focus.
+TX
+Tony Xiong54:22
+OK, OK.
+So I also welcome everybody in this three meeting.
+CZ
+Chuanbo Zhang54:23
+Yeah.
+TX
+Tony Xiong54:27
+You can just write your comments into the design spec.
+It is.
+It is currently this under official review, so you can just write down your comments offline.
+CZ
+Chuanbo Zhang54:41
+Good.
+TX
+Tony Xiong54:44
+Uh.
+And because we we have limited time here.
+So I suggest we go through it a quickly and focus on the overall architecture part, OK.
+CZ
+Chuanbo Zhang55:01
+Umm.
+It so Tony, for the time maybe if we need 2 aluminum, we could combined with the likes meeting on the group quickly go through that.
+TX
+Tony Xiong55:11
+OK, right.
+So next week we will have another meeting for the user group service I preview so we can put the user service and user group service together and have more discussion there.
+CZ
+Chuanbo Zhang55:19
+Yep.
+OK.
+OK.
+TX
+Tony Xiong55:32
+So should I?
+Go through the rest of the document.
+CZ
+Chuanbo Zhang55:41
+Umm, no, I I think for now we you already provide a link so people who have some offline forment and for like meeting we could continue. OK.
+TX
+Tony Xiong55:53
+OK.
+OK, good.
+CZ
+Chuanbo Zhang55:55
+Yeah.
+TX
+Tony Xiong55:55
+So as a summary, the we we think the user, the consumer user service, uh is pretty much different from the enterprise user service.
+Umm, because of the different data source different the A data storage data schema and.
+Umm, different data compliance requirements.
+So I I think the consumer user service should be created separately as a new service.
+So uh trumple, I would like to know your your idea, your comment.
+CZ
+Chuanbo Zhang56:48
+Yeah, I I think that that one that ohd closed like with John Lamar and Gaurav, yeah.
+TX
+Tony Xiong56:53
+Right.
+OK.
+OK, great.
+Great. OK.
+GD
+Gaurav Dhawan56:57
+Yeah, it should be separate and just make sure that when you do that, if if Eric.
+Can Roman have done the work like we should use a different subscription for the resources we use in this service?
+
+Ashley Yang joined the meeting
+GD
+Gaurav Dhawan57:10
+I don't know whether we are ready to do that or not.
+Yet from the engineering infra side.
+Because yeah.
+CZ
+Chuanbo Zhang57:17
+Yes.
+So for that one domain is prepare that having internal review and will like schedule a review with the actor committee soon.
+OK yeah.
+GD
+Gaurav Dhawan57:28
+OK, got it.
+OK.
+Yeah.
+So that separation is very important.
+And then once we do that, since it's gonna contain the consumer, UPI and UI, I think we'll just keep it that way, right?
+CZ
+Chuanbo Zhang57:37
+OK.
+GD
+Gaurav Dhawan57:40
+OK.
+TX
+Tony Xiong57:40
+OK, so best rumble and thanks everyone. So.
+CZ
+Chuanbo Zhang57:48
+OK.
+Yeah.
+Yes.
+Thanks Tony and team planned.
+TX
+Tony Xiong57:51
+The.
+CZ
+Chuanbo Zhang57:52
+So like we work into your on the, OK.
+TX
+Tony Xiong57:53
+That's OK.
+That's, that's enough the the review, but it's not the end.
+GD
+Gaurav Dhawan58:09
+Thank you.
