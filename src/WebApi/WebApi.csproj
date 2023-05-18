@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>ConsumerUserService.WebApi</AssemblyName>
+    <RootNamespace>Microsoft.CMD.Service.ConsumerUser.WebApi</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Management.Services.CloudPC.Redist.Auth.WebApi" />
+    <PackageReference Include="Microsoft.Management.Services.CloudPC.ResilientClientLibrary" />
+    <PackageReference Include="Swashbuckle.AspNetCore" />
+    <PackageReference Include="Microsoft.Management.Services.CloudPC.Api" />
+    <PackageReference Include="Newtonsoft.Json" />
+    <PackageReference Include="Microsoft.Management.Services.CloudPC.Instrumentation" />
+    <PackageReference Include="Microsoft.Management.Services.CloudManagement.DataContract.Partners" />
+    <PackageReference Include="Microsoft.Management.Services.CloudManagement.DataContract.Common" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\ConsumerUser.Component\ConsumerUser.Component.csproj" />
+  </ItemGroup>
+
+</Project>

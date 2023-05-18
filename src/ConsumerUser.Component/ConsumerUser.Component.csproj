@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>ConsumerUserService.Component</AssemblyName>
+        <RootNamespace>Microsoft.CMD.Service.ConsumerUser.Component</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <CodeAnalysisRuleSet>..\..\build\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Management.Services.CloudPC.Redist.Auth.WebApi" />
+        <PackageReference Include="Microsoft.Management.Services.CloudPC.ResilientClientLibrary" />
+        <PackageReference Include="Microsoft.Management.Services.CloudPC.Api" />
+        <PackageReference Include="Microsoft.Management.Services.CloudPC.Instrumentation" />
+        <PackageReference Include="Microsoft.Management.Services.CloudManagement.DataContract.Partners" />
+        <PackageReference Include="Microsoft.Management.Services.CloudManagement.DataContract.Common" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Common\Common.csproj" />
+      <ProjectReference Include="..\ConsumerUser.Data\ConsumerUser.Data.csproj" />
+    </ItemGroup>
+
+</Project>

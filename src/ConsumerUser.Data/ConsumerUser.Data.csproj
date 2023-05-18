@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AssemblyName>ConsumerUserService.Data</AssemblyName>
+        <RootNamespace>Microsoft.CMD.Service.ConsumerUser.Data</RootNamespace>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <CodeAnalysisRuleSet>..\..\build\StyleCop.ruleset</CodeAnalysisRuleSet>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Management.Services.CloudPC.Storage.CosmosDB" />
+        <PackageReference Include="Newtonsoft.Json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\" />
+    </ItemGroup>
+
+</Project>

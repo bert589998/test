@@ -1,0 +1,34 @@
+{
+    "commonCustomSettings": {
+      "*": {
+        "*": {
+          "CosmosDBThroughput": 1000,
+          "enableGraphExceptionHandler": true
+        }
+      },
+      "int": {
+        "*": {
+          "enableGraphExceptionHandler": true,
+          "CosmosDBThroughput": 1000
+        }
+      },
+      "sh": {
+        "*": {
+          "enableGraphExceptionHandler": true,
+          "CosmosDBThroughput": 1000
+        }
+      },
+      "ppe": {
+        "*": {
+          "enableGraphExceptionHandler": true,
+          "CosmosDBThroughput": 1000
+        }
+      },
+      "prod": {
+        "*": {
+          "enableGraphExceptionHandler": true,
+          "CosmosDBThroughput": 3000
+        }
+      }
+    }
+  }

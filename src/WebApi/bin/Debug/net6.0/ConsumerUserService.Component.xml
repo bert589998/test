@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConsumerUserService.Component</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.CMD.Service.ConsumerUser.Component.DependencyInjector">
+            <summary>
+            Dependency injector for business logic services.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CMD.Service.ConsumerUser.Component.Repositories.IUserRepository">
+            <summary>
+            A sample repository.
+            An interface to access a CosmosDB collection.
+            ASP.Net provides an IStorage singleton to access CosmosDB in a lower level.
+            </summary>
+        </member>
+        <member name="T:Microsoft.CMD.Service.ConsumerUser.Component.Repositories.UserRepository">
+            <summary>
+            A sample repository.
+            An interface to access a CosmosDB collection.
+            ASP.Net provides an IStorage singleton to access CosmosDB in a lower level.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CMD.Service.ConsumerUser.Component.User.IUserService.DeleteUserAsync(Microsoft.CMD.Service.ConsumerUser.Data.Models.Requests.UserReq)">
+            <summary>
+            delete by userId
+            </summary>
+            <param name="userReq">userId</param>
+            <returns>bool</returns>
+        </member>
+        <member name="M:Microsoft.CMD.Service.ConsumerUser.Component.User.IUserService.CreateOrUpdateUserAsync(Microsoft.CMD.Service.ConsumerUser.Data.Models.Requests.UserReq)">
+            <summary>
+            Create User
+            </summary>
+            <param name="userReq">userId</param>
+            <returns>bool</returns>
+        </member>
+    </members>
+</doc>

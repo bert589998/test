@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.Build.Traversal">
+    <ItemGroup>
+      <ProjectFile Include="Common\Common.csproj" />
+      <ProjectFile Include="WebApi\WebApi.csproj" />
+      <ProjectFile Include="UnitTest\UnitTest.csproj" />
+      <ProjectFile Include="SVT\SVT.csproj" />
+      <ProjectFile Include="Functions\Functions.csproj" />
+    </ItemGroup>
+  </Project>

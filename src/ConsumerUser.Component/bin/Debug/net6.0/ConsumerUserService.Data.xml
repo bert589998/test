@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ConsumerUserService.Data</name>
+    </assembly>
+    <members>
+        <!-- Badly formed XML comment ignored for member "T:Microsoft.CMD.Service.ConsumerUser.Data.Entities.UserDataEntity" -->
+        <member name="P:Microsoft.CMD.Service.ConsumerUser.Data.Entities.UserDataEntity.CUID">
+            <summary>
+            Represents consumer Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CMD.Service.ConsumerUser.Data.Entities.UserDataEntity.MSAID">
+            <summary>
+            Represents microsoft account Id.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CMD.Service.ConsumerUser.Data.Entities.UserDataEntity.ProviderType">
+            <summary>
+            ProviderType.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CMD.Service.ConsumerUser.Data.Entities.UserDataEntity.Status">
+            <summary>
+            Represents user status.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CMD.Service.ConsumerUser.Data.Entities.UserDataEntity.CreateDate">
+            <summary>
+            Represents data insertion time.
+            </summary>
+        </member>
+        <member name="P:Microsoft.CMD.Service.ConsumerUser.Data.Entities.UserDataEntity.LastModifiedDate">
+            <summary>
+            Represents last update time.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CMD.Service.ConsumerUser.Data.Enums.UserStatus.Active">
+            <summary>
+            Represents active status.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CMD.Service.ConsumerUser.Data.Enums.UserStatus.SoftDelete">
+            <summary>
+            Represents soft delete status.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CMD.Service.ConsumerUser.Data.Enums.UserStatus.Fraud">
+            <summary>
+            Represents fraud status.
+            </summary>
+        </member>
+        <member name="F:Microsoft.CMD.Service.ConsumerUser.Data.Enums.UserStatus.UnknownFutureValue">
+            <summary>
+            Represents an unknown future value.
+            </summary>
+        </member>
+    </members>
+</doc>

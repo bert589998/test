@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.apidescription.server\6.0.5\build\Microsoft.Extensions.ApiDescription.Server.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.apidescription.server\6.0.5\build\Microsoft.Extensions.ApiDescription.Server.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.visualstudio.slngen\8.2.2\build\Microsoft.VisualStudio.SlnGen.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.visualstudio.slngen\8.2.2\build\Microsoft.VisualStudio.SlnGen.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.netframework.referenceassemblies.net461\1.0.2\build\Microsoft.NETFramework.ReferenceAssemblies.net461.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.netframework.referenceassemblies.net461\1.0.2\build\Microsoft.NETFramework.ReferenceAssemblies.net461.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.build.artifacts\4.0.4\build\Microsoft.Build.Artifacts.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.build.artifacts\4.0.4\build\Microsoft.Build.Artifacts.targets')" />
+    <Import Project="$(NuGetPackageRoot)codesign.cloudbuild\5.0.0\build\CodeSign.CloudBuild.targets" Condition="Exists('$(NuGetPackageRoot)codesign.cloudbuild\5.0.0\build\CodeSign.CloudBuild.targets')" />
+  </ImportGroup>
+</Project>

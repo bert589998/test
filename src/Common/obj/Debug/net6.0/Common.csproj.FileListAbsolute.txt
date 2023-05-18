@@ -1,0 +1,12 @@
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\bin\Debug\net6.0\ConsumerUserService.Common.deps.json
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\bin\Debug\net6.0\ConsumerUserService.Common.dll
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\bin\Debug\net6.0\ConsumerUserService.Common.pdb
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\obj\Debug\net6.0\Common.csproj.AssemblyReference.cache
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\obj\Debug\net6.0\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\obj\Debug\net6.0\Common.AssemblyInfoInputs.cache
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\obj\Debug\net6.0\Common.AssemblyInfo.cs
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\obj\Debug\net6.0\Common.csproj.CoreCompileInputs.cache
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\obj\Debug\net6.0\ConsumerUserService.Common.dll
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\obj\Debug\net6.0\refint\ConsumerUserService.Common.dll
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\obj\Debug\net6.0\ConsumerUserService.Common.pdb
+C:\workspace\cloudpc\CMD-Proto-ConsumerUserService\src\Common\obj\Debug\net6.0\ref\ConsumerUserService.Common.dll
